@@ -4,7 +4,11 @@ function createAndAddTxnList(txHashes) {
     newTxHashList.id = 'txHashList';
     for (let txHash of txHashes) {
         let newTxHashListItem = document.createElement('li');
-        newTxHashListItem.textContent = txHash;
+        let txLinkAnchor = document.createElement('a')
+        txLinkAnchor.textContent = txHash;
+        txLinkAnchor.href = 'https://www.blockchain.com/explorer/transactions/btc/' + txHash;
+        
+        newTxHashListItem.appendChild(txLinkAnchor);
         newTxHashList.appendChild(newTxHashListItem);
     };
     if (document.getElementById('txHashList')) {

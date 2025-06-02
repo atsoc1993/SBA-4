@@ -11,7 +11,11 @@ This SBA contains an html & js based website that contains three buttons, two of
 - This button gets the latest block hash via the **/q/latesthash** endpoint
 
 ## Get Latest Block Transactions Button
-- This button gets the all transaction ID's within the latest block. The transaction ID's are added to an unordered list with bullet-point styling removed from list items
+- This button crawls through the response via the **rawblock/{lastBlockHash}** endpoint(block hash obtained from aforementioned endpoint) with an additional parameter of **?cors=true** to prevent CORS errors; gets the all transaction ID's within the latest block; collects all transaction ID's in an array; iteratively builds an unordered list, where list items are created for each transaction ID collected. Each list item contains an anchor tag, which hold each transaction ID in their textContent property and have their href set to a link containing the transaction ID's respective information displayed on blockchain.com's explorer.
+
+Example Link: https://www.blockchain.com/de/explorer/transactions/btc/46f4013cefeab285fbd6bff2443070c1dfd2384284bfaa4edf531c30470be535
+
+*Note: Bullet-point styling was removed from these list items*
 
 ## Set Timeout Button
-- As per the outline, I made sure to use set timeout at least once through this button. It adjusts the `p` tag element thrice: once to state it is in a waiting state for 3 seconds, once to state that the waiting state has ended, and then resets the text after 1.5 seconds back to the initial text— which is "Click the Button Above for a 3 Second Timeout"
+- As per the outline, I made sure to use set timeout at least once through this button. It adjusts the `p` tag element thrice: once to state it is in a waiting state for 3 seconds, once to state that the waiting state has ended, and then resets the text after 1.5 seconds back to the initial text— which is "Click the Button Above for a 3 Second Timeout".
