@@ -1,6 +1,6 @@
 import { getLatestBlockHash, getLatestBlockHashTransactions } from "./getters.js";
-import { createAndAddTxnList, addPleaseWaitPTag } from "./ModifyHTML.js";
-import { modifySetTimeoutPTag } from "./setTimeoutUtil.js";
+import { createAndAddTxnList, addPleaseWaitPTag } from "./modify-html.js";
+import { modifySetTimeoutPTag } from "./set-timeout-util.js";
 
 function addBaseHTML() {
     let baseDiv = document.createElement('div');
