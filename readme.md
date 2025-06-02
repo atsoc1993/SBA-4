@@ -2,12 +2,12 @@
 
 This SBA contains an html & js based website that contains three buttons with asynchronous functionality, two of which make use of blockchain.com's API via: https://www.blockchain.com/explorer/api/blockchain_api— the third uses the `setTimeout()` method. The codebase is also modularized through `main.js`, `SetInitialHTML.js`, `getters.js`, `ModifyHTML.js`, and `setTimeoutUtil.js`:
 
+*Note: The page has minimal styling aside from flexbox on the main div, white text, a black background, as well as a box-radius and background color/box shadow of red on the buttons.*
+
 ## The Three Buttons
 - Get latest block hash
 - Get latest block transactions
 - Set Timeout (as per outline for SBA)
-
-*Note: The page has minimal styling aside from flexbox on the main div, white text, a black background, as well as a box-radius and background color/box shadow of red on the buttons.*
 
 ### Get Latest Block Hash Button
 - This button gets the latest block hash via the **/q/latesthash** endpoint
