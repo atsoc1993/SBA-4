@@ -1,4 +1,4 @@
-import { addBaseHTML, addEventListenersToButtons } from "./SetInitialHTML.js";
+import { addBaseHTML, addEventListenersToButtons } from "./set-initial-html.js";
 
 addBaseHTML();
 addEventListenersToButtons();

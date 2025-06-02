@@ -7,7 +7,7 @@ function createAndAddTxnList(txHashes) {
         let txLinkAnchor = document.createElement('a')
         txLinkAnchor.textContent = txHash;
         txLinkAnchor.href = 'https://www.blockchain.com/explorer/transactions/btc/' + txHash;
-        
+        txLinkAnchor.target = '_blank'
         newTxHashListItem.appendChild(txLinkAnchor);
         newTxHashList.appendChild(newTxHashListItem);
     };
