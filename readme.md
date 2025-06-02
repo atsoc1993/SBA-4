@@ -1,6 +1,6 @@
 # Latest BTC Block Hash & Transaction Fetcher
 
-This SBA contains an html & js based website that contains three buttons with asynchronous functionality using axios, two of which make use of blockchain.com's API via: https://www.blockchain.com/explorer/api/blockchain_api— the third uses the `setTimeout()` method. The codebase is also modularized through `main.js`, `SetInitialHTML.js`, `getters.js`, `ModifyHTML.js`, and `setTimeoutUtil.js`:
+This SBA contains an html & js based website that contains three buttons with asynchronous functionality using **axios**, two of which make use of blockchain.com's API via: https://www.blockchain.com/explorer/api/blockchain_api— the third uses the `setTimeout()` method. The codebase is also modularized through `main.js`, `SetInitialHTML.js`, `getters.js`, `ModifyHTML.js`, and `setTimeoutUtil.js`:
 
 *Note: The page has minimal styling aside from flexbox on the main div, white text, a black background, as well as a box-radius and background color/box shadow of red on the buttons.*
 
