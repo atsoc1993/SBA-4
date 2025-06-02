@@ -1,0 +1,41 @@
+body, html {
+    margin: 0;
+    background-color: black;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+p {
+    color: white;
+}
+
+button {
+    background-color: red;
+    border-radius: 20px;
+    box-shadow: 3px 2px 5px white;
+}
+
+li {
+    color: white
+}
+#baseDiv {
+    display: 'flex';
+    flex-direction: 'column';
+    text-align: center;
+}
+
+#blockHashDiv {
+    margin: 50px;
+}
+
+#blockTxsDiv {
+    margin: 50px;
+    align-items: 'center';
+}
+
+#txHashList {
+    list-style: none;
+}
