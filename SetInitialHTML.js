@@ -1,5 +1,6 @@
 import { getLatestBlockHash, getLatestBlockHashTransactions } from "./getters.js";
 import { createAndAddTxnList, addPleaseWaitPTag } from "./ModifyHTML.js";
+import { modifySetTimeoutPTag } from "./setTimeoutUtil.js";
 
 function addBaseHTML() {
     let baseDiv = document.createElement('div');
@@ -17,6 +18,18 @@ function addBaseHTML() {
     latestBlockHashDiv.appendChild(getLatestBlockHashButton);
     baseDiv.appendChild(latestBlockHashDiv);
 
+    let setTimeoutDiv = document.createElement('div');
+    setTimeoutDiv.id = 'setTimeoutDiv';
+    let setTimeoutButton = document.createElement('button');
+    setTimeoutButton.id = 'timeoutButton';
+    setTimeoutButton.textContent = 'Set Timeout';
+    let setTimeoutPTag = document.createElement('p');
+    setTimeoutPTag.id = 'timeoutPTag';
+    setTimeoutPTag.textContent = 'Click the button above for a 3 second timeout';
+    setTimeoutDiv.appendChild(setTimeoutButton);
+    setTimeoutDiv.appendChild(setTimeoutPTag);
+    baseDiv.appendChild(setTimeoutDiv);
+
     let latestBlockTransactionsDiv = document.createElement('div');
     latestBlockTransactionsDiv.id = 'blockTxsDiv';
     let getLatestBlockHashTransactionsButton = document.createElement('button');
@@ -27,28 +40,36 @@ function addBaseHTML() {
     latestTransactionsPTag.textContent = 'Latest Block Transactions:';
     latestBlockTransactionsDiv.appendChild(getLatestBlockHashTransactionsButton);
     latestBlockTransactionsDiv.appendChild(latestTransactionsPTag);
-
     baseDiv.appendChild(latestBlockTransactionsDiv);
+
     document.body.appendChild(baseDiv);
 }
 
 function addEventListenersToButtons() {
     let getLatestBlockHashButton = document.getElementById('blockHashButton');
-    getLatestBlockHashButton.addEventListener('click', (e) => {
+    getLatestBlockHashButton.addEventListener('click', async (e) => {
         console.log("Clicked get latest block hash button");
         let latestBlockHashPTag = document.getElementById('blockHashPTag');
-        getLatestBlockHash()
-            .then(res => latestBlockHashPTag.textContent = latestBlockHashPTag.textContent + res)
+        let res = await getLatestBlockHash()
+        latestBlockHashPTag.textContent = 'BTC Latest Block Hash: ' + res
+    });
+
+    let setTimeoutButton = document.getElementById('timeoutButton');
+    setTimeoutButton.addEventListener('click', async (e) => {
+        console.log("Clicked the set timeout button");
+        await modifySetTimeoutPTag()
     });
 
     let getLatestBlockHashTransactionsButton = document.getElementById('transactionsButton');
-    getLatestBlockHashTransactionsButton.addEventListener('click', (e) => {
+    getLatestBlockHashTransactionsButton.addEventListener('click', async (e) => {
         console.log("Clicked get latest block txs button");
         addPleaseWaitPTag()
-        getLatestBlockHash()
-            .then(res => getLatestBlockHashTransactions(res))
-            .then(res => createAndAddTxnList(res));
+        let latestBlockHash = await getLatestBlockHash()
+        let latestTxs = await getLatestBlockHashTransactions(latestBlockHash)
+        createAndAddTxnList(latestTxs);
     });
 };
+
+
 
 export { addBaseHTML, addEventListenersToButtons };
